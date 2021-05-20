@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import dao.TeamDaoMySQL;
 import dao.TeamDaoPostgreSQL;
 import dao.TeamDao;
+import dao.TeamDaoFactory;
 import model.Team;
 
 
@@ -37,7 +38,7 @@ public class TeamServlet extends HttpServlet {
     }
     
     public void init(ServletConfig config) throws ServletException {
-    	this.teamDao = new TeamDaoPostgreSQL();
+    	this.teamDao = TeamDaoFactory.getTeamDao("mysql");
     }
 
 	/**
