@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Country;
-import util.Conexion;
+import util.ConexionMySQL;
 
 public class CountryDaoMySQL implements CountryDao {
-	private Conexion conexion;
+	private ConexionMySQL conexion;
 	
 	private static final String INSERT_TEAM_SQL = "INSERT INTO country (name) VALUES (?,?);";
 	private static final String DELETE_TEAM_SQL = "DELETE FROM country WHERE id = ?;";
@@ -20,7 +20,7 @@ public class CountryDaoMySQL implements CountryDao {
 	
 	
 	public CountryDaoMySQL() {
-		this.conexion = Conexion.getConexion();
+		this.conexion = ConexionMySQL.getConexion();
 	}
 	
 	public void insert (Country country) throws SQLException {

@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Conexion {
+public class ConexionMySQL {
 	private Connection con = null;
-	private static Conexion db;
+	private static ConexionMySQL db;
 	private PreparedStatement preparedStatement;
 
 	private static final String url = "queenie.db.elephantsql.com";
@@ -17,7 +17,7 @@ public class Conexion {
 	private static final String userName = "mnjgxshj";
 	private static final String password = "Uzjqo00sxV0W9OzPEB1q3wpoVvGMbbUV";
 
-	public Conexion() {
+	public ConexionMySQL() {
 		try {
 			Class.forName(driver).newInstance();
 			con = (Connection)DriverManager.getConnection(url+dbName,userName,password);
@@ -36,9 +36,9 @@ public class Conexion {
 		}
 	}
 	
-	public static Conexion getConexion() {
+	public static ConexionMySQL getConexion() {
 		if (db == null) {
-			db = new Conexion();
+			db = new ConexionMySQL();
 		}
 		return db;
 	}

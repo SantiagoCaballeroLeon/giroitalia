@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Team;
-import util.Conexion;
+import util.ConexionMySQL;
 
 public class TeamDaoMySQL implements TeamDao{
-	private Conexion conexion;
+	private ConexionMySQL conexion;
 	
 	private static final String INSERT_TEAM_SQL = "INSERT INTO team (name, country) VALUES (?,?);";
 	private static final String DELETE_TEAM_SQL = "DELETE FROM team WHERE id = ?;";
@@ -20,7 +20,7 @@ public class TeamDaoMySQL implements TeamDao{
 	
 	
 	public TeamDaoMySQL() {
-		this.conexion = Conexion.getConexion();
+		this.conexion = ConexionMySQL.getConexion();
 	}
 	
 	public void insert (Team team) throws SQLException {

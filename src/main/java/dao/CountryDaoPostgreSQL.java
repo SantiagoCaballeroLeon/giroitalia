@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import model.Country;
-import util.Conexion;
+import util.ConexionMySQL;
 import util.ConexionPostgreSQL;
 
 public class CountryDaoPostgreSQL implements CountryDao {
@@ -19,6 +19,10 @@ public class CountryDaoPostgreSQL implements CountryDao {
 	private static final String UPDATE_TEAM_SQL = "UPDATE country SET name = ?, country = ? WHERE id = ?;";
 	private static final String SELECT_TEAM_BY_ID = "SELECT * FROM country WHERE id = ?;";
 	private static final String SELECT_ALL_TEAMS = "SELECT * FROM country;";
+	
+	public CountryDaoPostgreSQL() {
+		this.conexion = ConexionPostgreSQL.getConexion();
+	}
 
 	public void insert (Country country) throws SQLException {
 		try {
