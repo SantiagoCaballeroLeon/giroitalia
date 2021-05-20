@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import dao.TeamDaoMySQL;
 import dao.TeamDao;
 import model.Team;
 
@@ -35,7 +36,7 @@ public class TeamServlet extends HttpServlet {
     }
     
     public void init(ServletConfig config) throws ServletException {
-    	this.teamDao = new TeamDao();
+    	this.teamDao = new TeamDaoMySQL();
     }
 
 	/**
